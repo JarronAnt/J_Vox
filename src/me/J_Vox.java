@@ -2,9 +2,9 @@ package me;
 
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
-import org.lwjgl.opengl.GL30;
 
-import Display.Window;
+import Graphics.Display.Window;
+import Graphics.Camera.Camera;
 
 
 
@@ -20,11 +20,14 @@ public class J_Vox {
         window.show();
         window.setClearColor(0.5f, 0.125f, 0.25f, 1f);
 
+        Camera cam = new Camera();
+
         float timer = System.nanoTime();
         float delta = 1f;
 
         while(window.keepOpen()){
             window.clearBuffers();
+            cam.update(window.getId(), delta);
             window.update();
 
             delta = (System.nanoTime() - timer) / 1000000000f;

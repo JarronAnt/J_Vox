@@ -1,6 +1,5 @@
-package Display;
+package Graphics.Display;
 
-import me.J_Vox;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
