@@ -1,4 +1,4 @@
-#version 400 core
+#version 400
 
 in vec3 passColor;
 
