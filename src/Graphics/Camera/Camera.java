@@ -86,7 +86,7 @@ public class Camera {
 
         if (GLFW.glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_2) == GLFW_PRESS) {
             GLFW.glfwSetCursorPos(window, 320, 180);
-            GLFW.glfwSetInputMode(window, GLFW.GLFW_CURSOR, GLFW.GLFW_CURSOR_HIDDEN);
+            GLFW.glfwSetInputMode(window, GLFW.GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
             mouseLocked = false;
         }
