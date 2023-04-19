@@ -57,6 +57,7 @@ public class J_Vox {
         while(window.keepOpen()){
             window.clearBuffers();
             cam.update(window.getId(), delta);
+            terrainRenderer.updateFrustum(cam);
             shader.start();
             shader.loadViewMatrix(cam);
             terrainRenderer.render(world, shader, cam);
