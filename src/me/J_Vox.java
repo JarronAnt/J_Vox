@@ -1,5 +1,6 @@
 package me;
 
+import Graphics.Model.ModelLoader;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 
@@ -11,6 +12,8 @@ import Graphics.Camera.Camera;
 public class J_Vox {
 
     private final Window window;
+    public static ModelLoader modelLoader;
+   // private final WorldRenderer worldRenderer;
     public J_Vox() {
         this.window = new Window(1280, 720, "JVox");
     }
