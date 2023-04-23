@@ -29,11 +29,6 @@ public class Window {
 
         GLFWErrorCallback.createPrint(System.err).set();
 
-        /*
-        if (!glfwInit())
-            Nublada.LOG.severe("Unable to initialize GLFW");
-        */
-
         glfwInit();
 
         glfwDefaultWindowHints();
@@ -42,9 +37,6 @@ public class Window {
 
         id = glfwCreateWindow(width, height, title, NULL, NULL);
 
-        /*if (id == NULL)
-            Nublada.LOG.severe("Error while creating the window");
-        */
         glfwSetKeyCallback(id, (window, key, scancode, action, mods) -> {
             if (key == GLFW_KEY_R && action == GLFW_RELEASE) {
                 wireframe = !wireframe;

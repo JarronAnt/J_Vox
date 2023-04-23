@@ -3,6 +3,7 @@ package World;
 import Utils.PerlinNoise;
 import Utils.Maths;
 import Graphics.Model.ModelLoader;
+import Utils.SimplexNoise;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import java.util.*;
@@ -21,12 +22,15 @@ public class World {
     private PerlinNoise noise;
     private Random random;
 
+    private SimplexNoise noise2;
+
     public World(ModelLoader loader) {
         this.chunks = new HashMap<>(); //map of all chunks in the world
         this.toGenChunks = new LinkedList<>();
         this.toLoadChunks = new LinkedList<>();
 
         this.noise = new PerlinNoise(91823);
+        this.noise2 = new SimplexNoise();
         this.random = new Random();
 
         this.textureId = loader.loadTextureArray("Res/Textures/stone.png", "res/textures/redsand.png", "res/textures/grass_top.png");

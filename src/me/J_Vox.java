@@ -86,7 +86,7 @@ public class J_Vox {
             delta = (System.nanoTime() - timer) / 1000000000f;
             timer = System.nanoTime();
 
-            GLFW.glfwSetWindowTitle(window.getId(), "J_Vox | FPS: " + (int) (1f / delta) + " (delta: " + delta + "s)");
+            GLFW.glfwSetWindowTitle(window.getId(), "J_Vox Engine | FPS: " + (int) (1f / delta));
         }
     }
 

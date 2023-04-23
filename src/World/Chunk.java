@@ -1,6 +1,7 @@
 package World;
 import Graphics.Model.Model;
 import Utils.PerlinNoise;
+import Utils.SimplexNoise;
 
 import org.joml.Vector2f;
 import java.util.Random;
@@ -27,6 +28,29 @@ public class Chunk {
     //Create a chunk using perlinNoise
     //TODO: implement simplexNoise chunk
     public void populateChunk(PerlinNoise noise, Random random) {
+        int voxel;
+        for (int x = 0; x < CHUNK_WIDTH; x++) {
+            for (int y = 0; y < CHUNK_HEIGHT; y++) {
+                for (int z = 0; z < CHUNK_WIDTH; z++) {
+                    if ((noise.noise(x + position.x * CHUNK_WIDTH, z + position.y * CHUNK_WIDTH) + 1) / 4f * 32 + 24 >= y) {
+                        if ((int) ((noise.noise(x + position.x * CHUNK_WIDTH, z + position.y * CHUNK_WIDTH) + 1) / 4f * 32 + 24) == y)
+                            voxel = 3;
+                        else voxel = 1;
+                    } else {
+                        voxel = 0;
+                    }
+                    voxels[x][y][z] = voxel;
+                }
+            }
+        }
+        this.mesher = new WorldMesher(this);
+        this.mesher.compute();
+
+        voxels = null;
+        isGenerated = true;
+    }
+
+    public void populateChunk(SimplexNoise noise, Random random) {
         int voxel;
         for (int x = 0; x < CHUNK_WIDTH; x++) {
             for (int y = 0; y < CHUNK_HEIGHT; y++) {
